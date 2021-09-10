@@ -35,7 +35,7 @@ const resolvers = {
   },
   Mutation: {
     postMessage(_, { user, content }) {
-      const id = messages.length;
+      const id = messages.length + 3;
       messages.push({ id, user, content });
       return id;
     },

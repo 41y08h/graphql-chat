@@ -15,11 +15,12 @@ export default function App() {
   const [sendMessage, chatMutation] = useMutation(CHAT);
   const messageInputRef = useRef();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    sendMessage({
+    await sendMessage({
       variables: { user: currentUser, content: messageInputRef.current.value },
     });
+    messageInputRef.current.value = "";
   }
 
   return (
